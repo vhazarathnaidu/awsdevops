@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: container-policy
+  labels:
+    env: prod
+spec:
+  containers:
+  - image: httpd
+    imagePullPolicy: IfNotPresent
+    name: httpd-container
+    resources:
+    - requests:
+      cpu: 100m
+      memory: 100Mi
+    - limits:
+      cpu: 500m
+      memory: 500Mi
+    restartPolicy: OnFailue
