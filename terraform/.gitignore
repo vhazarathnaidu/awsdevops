@@ -1,0 +1,26 @@
+# ignore ALL .log files
+*.log
+
+
+# ignore ALL files in ANY directory named temp
+.terraform*/
+.terraform.*
+
+#ignore exe files
+*.exe
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .lock files
+*.lock
+*.lock.*
+
+
+# Crash log files
+crash.log
+crash.*.log
