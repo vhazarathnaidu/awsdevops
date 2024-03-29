@@ -1,0 +1,18 @@
+ECS
+---
+
+Create cluster
+	- fargate (server less)
+	- ec2
+	- it comes up with E-Point cloudwatch monitering enabled
+
+	Create docker file
+	build docker image
+	push docker image to ecr container registry
+		if registry not available create new ecr registry(private)
+		
+Create task defnition
+
+Autoscaling
+
+AutoHealing

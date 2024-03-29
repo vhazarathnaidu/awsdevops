@@ -1,0 +1,8 @@
+
+
+trraform apply --auto-approve
+
+
+terraform plan --refresh-only
+
+terraform apply --refresh-only

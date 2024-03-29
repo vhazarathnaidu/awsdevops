@@ -1,0 +1,65 @@
+Jenkins installation  --- jenkins/jenkins@123
+----------------------
+
+
+Install jdk 17
+
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+
+for search: sudo apt-cache search openjdk
+find java location: "readlink -f $(which java)" 
+
+
+https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+
+verify below steps after jenkins install
+1. "cat /etc/passwd" to identify new user
+2. check 8080 port is open in security group because jenkins default port is 8080
+
+login to jenkins
+install suggested plugins
+create first user
+
+password based authentication
+---------
+goto this file sudo vi /etc/ssh/sshd_config
+enable "PasswordAuthentication" to "yes"
+sudo servce sshd restart
+
+setup slaves
+------------
+
+establish connection two servers permently (nov26  1:03) from server1 to server2
+ generate key "use ssh-keygen" in server1
+ "ssh-copy-id server2username@<ip>" in server1
+ 
+ 
+
+Master & Slaves (Distributed build)
+----------------------------------
+sudo adduser <username>  --create new user and set password
+sudo passwd <username>   --set passwd for existing user
+
+ install Maven
+ -------------
+ 
+ cd /tmp
+wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+tar -xvzf apache-maven-3.9.5-bin.tar.gz
+sudo mkdir /opt/maven
+sudo mv apache-maven-3.9.5 /opt/maven
+
+sudo vi /etc/environment
+export PATH="/opt/maven/apache-maven-3.9.6/bin:$PATH"
+
+ 
+ Jenkins-pipeline
+----------------
+Declarative Pipeline: 
+
+Scripted Pipeline:
+
+
+

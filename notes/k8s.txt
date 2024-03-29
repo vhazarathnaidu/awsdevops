@@ -1,0 +1,57 @@
+
+
+curl -fsSL https://get.docker.com -o install-docker.sh
+sh install-docker.sh
+sudo usermod -aG docker ubuntu
+exit
+
+# Step: 2: install kubeadm, kubectl and kubelet
+
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+
+# step 3: install CRI
+cd /tmp
+wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.9/cri-dockerd_0.3.9.3-0.ubuntu-jammy_amd64.deb
+sudo dpkg -i cri-dockerd_0.3.9.3-0.ubuntu-jammy_amd64.deb
+
+
+# step 4: login as root in master and this will give output to enroll nodes
+kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock
+
+
+#step: 5 
+
+#step: 6 install CNI network plugin falnnel in master node as root user
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+
+
+--------------------------
+For Create:
+kubectl apply -f anyname.yaml
+
+For Delete:
+kubectl detete -f anyname.yaml
+
+
+kubectl pod delete <pod-name>
+kubectl rs delete <replicaSet-name>
+
+"printenv"/"set" cmd will give you all environment variables
+
+
+Interview questions
+------------------
+CrashLoopBackOff
+
+liveness check vs readyness check
+
+Reconsilation loop & self hearing
+
+layer 4 loadbalencer

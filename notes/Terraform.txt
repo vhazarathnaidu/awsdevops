@@ -1,0 +1,31 @@
+Terraform setup
+---------------
+
+Required Softwares
+ 1. Git
+ 2. Windows Terminal (Windows 10 only)
+ 3. chocolatey
+ 4. choco install awscli -y
+ 5. choco install terraform -y
+ 
+Variables 
+-----------
+Values of variables can be passed by the user during terraform apply
+teraform apply -var <variable-name-1>=<value-1> -var <variable-name-2>=<value-2>
+
+To handle multiple varibales terraform allows to create a file .tfvars extension
+Example: terraform apply -var-file="testing.tfvars"
+
+
+Variables
+
+Modules
+
+Taint: It is working now but soon it depricated, and alternate is replace
+
+Taint: Deleting a particlular resource during next execution
+Replace: It is recommended to use replace as taint is deprecated.
+
+Example: terraform apply -var-file="default.tfvars" -replace="aws_instance.ec2-opn-fin-app-instance
+
+drift

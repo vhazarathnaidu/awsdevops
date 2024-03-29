@@ -1,0 +1,5 @@
+Cloud Front
+-----------
+
+Content Delivery Network (CDN)
+If the user is located far from that server, it will take a long time to load a large file, such as a video or website image. Instead, the website content is stored on CDN servers geographically closer to the users and reaches their computers much faster.

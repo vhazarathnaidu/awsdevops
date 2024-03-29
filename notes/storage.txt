@@ -1,0 +1,59 @@
+Storage (S3)
+------------
+Storage Class
+
+	Manually changing storage classes is not sensible, we have two options
+		Intelligent tiering
+		Lifecycle
+
+Life Cycle
+
+	If we have a pattern such as shown below, then lifecycle is better
+	first 180 days => Standard
+	181-365 days => One Zone -IA
+	365 + => Glacier  
+
+Versioning
+    1. Current
+	2. Non Current
+	
+	When we write life cycle rules we need to also write on non current versions
+
+Replication
+
+	Redundancy is for AWS to provide durability and availability. Replication is something which we can use to copy contents for one bucket to another
+	1. New 
+	2. Existing objects (Create batch operations)
+	
+Requester pays
+	In s3 we have two costs
+		access costs
+		storage costs
+		
+Static Website hosting
+
+AWS Elastic Block Storage (EBS)
+	Disk Performance Factors
+		IOPS (I/O operations Per Second):
+		number of read or write operations per second
+	Throughput
+		total size of data transferred in a second
+	Higher the IOPS costlier the disk.
+	
+	Instance Storage [storage in same server where ec2 is running] (Ephemeral) -> It is temporary storage
+	Elastacic Block Storage [storage in some other server] (Non Ephemeral) -> It is permenant storage until you delete
+	
+AWS has two types of volumes
+	Elastic Block Storage:
+		They are created from different physical server in aws data center
+		this disk can exist even after ec2 is deleted
+		this disk will remain persistent
+		this disk is used for os disks
+		this can be used for os as well as secondary disks
+	Instance Storage volume:
+		They are create from same physical server as ec2
+		this disk cannot exist even after ec2 is deleted
+		this disk will be viped clean (data is erased) every time you stop the instance (ephermeral)
+		this disk cannot be used for os disks and is not supported for all ec2 instance types. this is always secondary disk
+
+		
