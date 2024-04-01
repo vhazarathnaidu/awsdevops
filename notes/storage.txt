@@ -56,4 +56,39 @@ AWS has two types of volumes
 		this disk will be viped clean (data is erased) every time you stop the instance (ephermeral)
 		this disk cannot be used for os disks and is not supported for all ec2 instance types. this is always secondary disk
 
+EBS Volumes
+
+	EBS Volumes can be attached to only one ec2 instance running in same AZ.
+	EBS volumes support modifications from
+	one type to other (gp2, gp3, provisioned io, hdd)
+	increasing sizes
+	EBS Volumes exist even after ec2 is deleted
+
+
+
+Systems Manager
+    Parameter store
+    Simple to integrate
+    Simple to retrive
+Secrets manager
+    Rotating in 90 (Certificates, dbpasswords, APItokens, AWS Token)
+    Very very senctitive information
+    Rotation policy like change every 90 days
+
+Every time we use both
+Example: 
+    Docker Container registry
+	User name
+	Registry URL
+	Password
+    
+    
+HasiCorp Vault
+
+
+s3
+Secrets manager import mapping
+Python/shell script
+
+
 		
