@@ -1,0 +1,20 @@
+ # vpc_id 
+  # private_a_sub_net_id 
+  # private_b_sub_net_id 
+  
+  #public_a_sub_net_id 
+  #public_b_sub_net_id 
+
+  #ubuntu ami
+  # security-group
+  # ingress allow all
+  # egress allow all
+
+  #application load balancer associate to public subnets with web security group
+  # load balancer listner 
+  
+
+  #blue - deploy
+
+  # new ec2 instancce with ubuntu ami
+  
