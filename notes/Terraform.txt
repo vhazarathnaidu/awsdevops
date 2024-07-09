@@ -16,10 +16,19 @@ teraform apply -var <variable-name-1>=<value-1> -var <variable-name-2>=<value-2>
 To handle multiple varibales terraform allows to create a file .tfvars extension
 Example: terraform apply -var-file="testing.tfvars"
 
+Terraform Registry
+The Terraform Registry is integrated directly into Terraform so you can directly specify providers and modules. 
+Anyone can publish and consume providers, modules, and policies on the public Terraform Registry.
 
-Variables
+Efficiency: You can utilize the registry to save time by using pre-existing modules instead of starting from scratch. For example, you can import a pre-built Terraform EKS module from the registry, saving the time and effort of writing the EKS config.
 
-Modules
+You can configure, test, and deploy infrastructure across AWS and many other cloud providers. If your organization uses multiple cloud providers, Terraform can be a single, unified, consistent solution to manage cloud infrastructure.
+
+Module:
+
+You can configure, test, and deploy infrastructure across AWS and many other cloud providers. If your organization uses multiple cloud providers, Terraform can be a single, unified, consistent solution to manage cloud infrastructure.
+
+They are used to create reusable components, improve organization, and treat pieces of infrastructure as a black box
 
 Taint: It is working now but soon it depricated, and alternate is replace
 
